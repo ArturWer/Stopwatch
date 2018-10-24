@@ -1,0 +1,31 @@
+/* base */
+html{
+	font-size: 20px;
+	line-height: 1.5;
+	font-family: sans-serif;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+
+/* document */
+h1{
+	text-align: center;
+	font-size: 1.8rem;
+	font-family: 'Black Han Sans', sans-serif;
+	background-color: purple;
+	color: white;
+	letter-spacing: .1rem;
+	text-shadow: 1px 1px 4px black;
+}
+main{
+	display: flex;
+
+}
+section{
+	flex: 1;
+}
+form{
+	display: flex;
+}
