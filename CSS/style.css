@@ -7,17 +7,26 @@ html{
 body{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 /* document */
+header{
+	box-shadow: 0 .1rem .4rem black;
+}
 h1{
 	text-align: center;
 	font-size: 1.8rem;
 	font-family: 'Black Han Sans', sans-serif;
 	background-color: purple;
 	color: white;
-	letter-spacing: .1rem;
-	text-shadow: 1px 1px 4px black;
+	letter-spacing: .2rem;
+	text-shadow: 2px 3px 4px black;
+	margin: 0;
+	background-image: linear-gradient(to bottom right, rgb(0,0,0,0),rgba(0,0,0,0.3));
+}
+h2{
+	text-align: center;
 }
 main{
 	display: flex;
@@ -28,4 +37,25 @@ section{
 }
 form{
 	display: flex;
+}
+form button{
+	flex: 1;
+	height: 2rem;
+	box-shadow: .1rem .1rem .4rem black;
+	margin: .1rem; 
+	font-size: 1rem;
+	color: black;
+	border-radius: 0.4rem;
+	background-color: #dcdcdc;
+	background-image: linear-gradient(to bottom right, rgb(0,0,0,0),rgba(0,0,0,0.2));
+}
+form button:hover{
+	color: white;
+	background-color: orange;
+	box-shadow: .1rem .1rem .3rem grey;
+}
+form button:active{
+	background-color: purple;
+	text-shadow: .1rem .1rem .1rem white;
+	font: bold;
 }
