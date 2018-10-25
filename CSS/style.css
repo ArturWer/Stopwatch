@@ -37,6 +37,8 @@ section{
 }
 form{
 	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
 }
 form button{
 	flex: 1;
@@ -48,6 +50,7 @@ form button{
 	border-radius: 0.4rem;
 	background-color: #dcdcdc;
 	background-image: linear-gradient(to bottom right, rgb(0,0,0,0),rgba(0,0,0,0.2));
+	min-width: 5rem;
 }
 form button:hover{
 	color: white;
@@ -58,4 +61,12 @@ form button:active{
 	background-color: purple;
 	text-shadow: .1rem .1rem .1rem white;
 	font: bold;
+}
+main .stopwatch{
+	font-size: 5rem;
+	text-align: center;
+}
+main .log{
+	background-color: #deed1b4d;
+	margin: .5rem;
 }
