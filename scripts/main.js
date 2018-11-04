@@ -1,6 +1,7 @@
 "use strict"
 let form = document.querySelector("form"),
     stopwatchEl = document.querySelector(".stopwatch"),
+    startStopBtn = document.getElementById('#startStopBtn'),
 	time = 0,
 	intervalId;
 
@@ -9,12 +10,13 @@ function checkClick(e) {
 	e.stopPropagation();
 	let button = e.target.className;
 	console.log(button);
-	if (button === "startBtn") {
+	if (button === "start") {
 		if(time === 0){
 			intervalId = startStopwatch();
 			console.log(intervalId);
-			let startBtnEl = document.querySelector(".startBtn");
-			startBtnEl.textContent = "Continue";
+			let startStopBtnEl = document.querySelector(".startStopBtn");
+			startStopBtnEl.textContent = "Stop";
+			startStopBtnEl.className = "stopBtn";
 		}
 	} else if (button === "stopBtn"){
 		clearInterval(intervalId);
@@ -27,16 +29,15 @@ function checkClick(e) {
 };
 
 function startStopwatch(){
-	let intervalId = setInterval (timeGo, 100);
+	let intervalId = setInterval (timeGo, 10);
 	return intervalId;
 };
 
 function timeGo(){
-	time+=0.1;
-	time = time.toFixed(1);
-	time = Number(time);
+	time+=0.01;
+	time = time.toFixed(2);
 	stopwatchEl.firstChild.nodeValue = time;
-	console.log(`timeGo ${time}`);
+	time = Number(time);
 }
 
 
