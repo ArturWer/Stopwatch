@@ -1,6 +1,6 @@
 "use strict"
 let form = document.querySelector("form"),
-    stopwatchEl = document.querySelector("stopwatch"),
+    stopwatchEl = document.querySelector(".stopwatch"),
 	time = 0,
 	intervalId;
 
@@ -31,6 +31,7 @@ function timeGo(){
 	time+=0.1;
 	time = time.toFixed(1);
 	time = Number(time);
+	stopwatchEl.firstChild.nodeValue = time;
 	console.log(`timeGo ${time}`);
 }
 
