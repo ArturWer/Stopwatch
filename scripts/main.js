@@ -1,7 +1,7 @@
 "use strict"
 let form = document.querySelector("form"),
     stopwatchEl = document.querySelector(".stopwatch"),
-    startStopBtn = document.getElementById('#startStopBtn'),
+    startStopBtn = document.getElementById('startStopBtn'),
 	time = 0,
 	intervalId;
 
@@ -11,18 +11,17 @@ function checkClick(e) {
 	let button = e.target.className;
 	console.log(button);
 	if (button === "start") {
-		if(time === 0){
 			intervalId = startStopwatch();
 			console.log(intervalId);
-			let startStopBtnEl = document.querySelector(".startStopBtn");
-			startStopBtnEl.textContent = "Stop";
-			startStopBtnEl.className = "stopBtn";
-		}
-	} else if (button === "stopBtn"){
+			startStopBtn.textContent = "Stop";
+			startStopBtn.className = "stop";
+	} else if (button === "stop"){
 		clearInterval(intervalId);
-		time = 0;
-	} else if (button === "resetButton"){
+		startStopBtn.textContent = "Start";
+		startStopBtn.className = "start";
 		
+	} else if (button === "resetButton"){
+		time = 0;
 	} else if (button === "clearLogButton"){
 		
 	}
