@@ -17,13 +17,14 @@ function checkClick(e) {
 			changeBtns("Stop", "Lap");
 	} else if (button === "Stop"){
 		clearInterval(intervalId);
+		writeLog();
 		changeBtns("Start", "Reset");
 	} else if (button === "Reset"){
 		time = 0;
 		clearInterval(intervalId);
 		stopwatchEl.textContent = "0.00";
 		changeBtns("Start");
-	} else if (button === "clearLogButton"){
+	} else if (button === "Lap"){
 		
 	}
 };
@@ -49,6 +50,12 @@ function changeBtns(btn1, btn2){
 		btn2El.className = btn2;
 	};
 	
+};
+function writeLog(){
+	let el = document.createElement("li");
+	let text = document.createTextNode(time);
+	el.appendChild(text);
+	document.querySelector(".log ol").appendChild(el);
 };
 
 
