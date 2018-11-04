@@ -10,8 +10,12 @@ function checkClick(e) {
 	let button = e.target.className;
 	console.log(button);
 	if (button === "startBtn") {
-		intervalId = startStopwatch();
-		console.log(intervalId);
+		if(time === 0){
+			intervalId = startStopwatch();
+			console.log(intervalId);
+			let startBtnEl = document.querySelector(".startBtn");
+			startBtnEl.textContent = "Continue";
+		}
 	} else if (button === "stopBtn"){
 		clearInterval(intervalId);
 		time = 0;
