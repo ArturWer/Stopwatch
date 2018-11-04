@@ -2,6 +2,7 @@
 let form = document.querySelector("form"),
     stopwatchEl = document.querySelector(".stopwatch"),
     startStopBtn = document.getElementById('startStopBtn'),
+    btn2El = document.getElementById('btn2'),
 	time = 0,
 	intervalId;
 
@@ -10,18 +11,18 @@ function checkClick(e) {
 	e.stopPropagation();
 	let button = e.target.className;
 	console.log(button);
-	if (button === "start") {
+	if (button === "Start") {
 			intervalId = startStopwatch();
 			console.log(intervalId);
-			startStopBtn.textContent = "Stop";
-			startStopBtn.className = "stop";
-	} else if (button === "stop"){
+			changeBtns("Stop", "Lap");
+	} else if (button === "Stop"){
 		clearInterval(intervalId);
-		startStopBtn.textContent = "Start";
-		startStopBtn.className = "start";
-		
-	} else if (button === "resetButton"){
+		changeBtns("Start", "Reset");
+	} else if (button === "Reset"){
 		time = 0;
+		clearInterval(intervalId);
+		stopwatchEl.textContent = "0.00";
+		changeBtns("Start");
 	} else if (button === "clearLogButton"){
 		
 	}
@@ -37,8 +38,18 @@ function timeGo(){
 	time = time.toFixed(2);
 	stopwatchEl.firstChild.nodeValue = time;
 	time = Number(time);
-}
-
+};
+function changeBtns(btn1, btn2){
+	if (btn1) {
+		startStopBtn.textContent = btn1;
+		startStopBtn.className = btn1;
+	};
+	if (btn2) {
+		btn2El.textContent = btn2;
+		btn2El.className = btn2;
+	};
+	
+};
 
 
 form.addEventListener("click", checkClick, false);
