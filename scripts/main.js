@@ -14,6 +14,7 @@ function checkClick(e) {
 		console.log(intervalId);
 	} else if (button === "stopBtn"){
 		clearInterval(intervalId);
+		time = 0;
 	} else if (button === "resetButton"){
 		
 	} else if (button === "clearLogButton"){
@@ -27,7 +28,10 @@ function startStopwatch(){
 };
 
 function timeGo(){
-	console.log("timeGo");
+	time+=0.1;
+	time = time.toFixed(1);
+	time = Number(time);
+	console.log(`timeGo ${time}`);
 }
 
 
