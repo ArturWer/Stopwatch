@@ -21,7 +21,7 @@ function checkClick(e) {
 	} else if (button === "Reset"){
 		time = 0;
 		clearInterval(intervalId);
-		stopwatchEl.textContent = "0.00 s";
+		stopwatchEl.textContent = "00:00:00.0";
 		changeBtns("Start");
 	} else if (button === "Lap"){
 		writeLog();
@@ -37,15 +37,7 @@ function startStopwatch(){
 		milliSecs+=100;
 		startTime.setMilliseconds(milliSecs);
 		msg = `${startTime.getHours()}:${startTime.getMinutes()}:${startTime.getSeconds()}.${(startTime.getMilliseconds())/100}`;
-
-		console.log(msg);/*
-		time+=0.1;
-		time = time.toFixed(1);
-		if (time>=60) {
-			convertTime(time);
-		}
-		stopwatchEl.firstChild.nodeValue = `${time} s`;
-		time = Number(time);*/
+		stopwatchEl.firstChild.nodeValue = msg;
 	}, 100);
 	return intervalId;
 };
