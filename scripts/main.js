@@ -1,9 +1,13 @@
 "use strict"
 let form = document.querySelector("form"),
-    stopwatchEl = document.querySelector(".stopwatch"),
+    stopwatchEl = document.querySelector("#stopwatch"),
     startStopBtn = document.getElementById('startStopBtn'),
     btn2El = document.getElementById('btn2'),
+    nullTime = new Date(null),
 	intervalId;
+
+	nullTime.setHours(null);
+	console.log(`Created new object nullTime: ${nullTime}`);
 
 function checkClick(e) {
 	e.preventDefault();
@@ -19,7 +23,10 @@ function checkClick(e) {
 		writeLog();
 		changeBtns("Start", "Reset");
 	} else if (button === "Reset"){
-		time = 0;
+		nullTime.setHours(null);
+		nullTime.setMinutes(null);
+		nullTime.setSeconds(null);
+		nullTime.setMilliseconds(null);
 		clearInterval(intervalId);
 		stopwatchEl.textContent = "00:00:00.0";
 		changeBtns("Start");
@@ -29,14 +36,15 @@ function checkClick(e) {
 };
 
 function startStopwatch(){
-	let startTime = new Date(null);
-	startTime.setHours(null);
+	if(stopwatchEl.hasAttribute("class")){
+		stopwatchEl.removeAttribute("class");
+	};	
 	let intervalId = setInterval (function (){
-		let milliSecs = startTime.getMilliseconds(),
+		let milliSecs = nullTime.getMilliseconds(),
 			msg;
 		milliSecs+=100;
-		startTime.setMilliseconds(milliSecs);
-		msg = `${startTime.getHours()}:${startTime.getMinutes()}:${startTime.getSeconds()}.${(startTime.getMilliseconds())/100}`;
+		nullTime.setMilliseconds(milliSecs);
+		msg = `${nullTime.getHours()}:${nullTime.getMinutes()}:${nullTime.getSeconds()}.${(nullTime.getMilliseconds())/100}`;
 		stopwatchEl.firstChild.nodeValue = msg;
 	}, 100);
 	return intervalId;
@@ -53,7 +61,7 @@ function changeBtns(btn1, btn2){
 	
 };
 function writeLog(){
-	let msg = `${time} s`;
+	let msg = `${nullTime.getHours()}:${nullTime.getMinutes()}:${nullTime.getSeconds()}.${(nullTime.getMilliseconds())/100}`;
 	let el = document.createElement("li");
 	let text = document.createTextNode(msg);
 	el.appendChild(text);

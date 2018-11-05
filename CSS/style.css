@@ -62,7 +62,7 @@ form button:active{
 	text-shadow: .1rem .1rem .1rem white;
 	font: bold;
 }
-main .stopwatch{
+main #stopwatch{
 	font-size: 5rem;
 	text-align: center;
 }
