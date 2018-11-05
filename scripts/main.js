@@ -30,11 +30,15 @@ function checkClick(e) {
 
 function startStopwatch(){
 	let startTime = new Date(null);
+	startTime.setHours(null);
 	let intervalId = setInterval (function (){
-		let milliSecs = startTime.getMilliseconds();
+		let milliSecs = startTime.getMilliseconds(),
+			msg;
 		milliSecs+=100;
 		startTime.setMilliseconds(milliSecs);
-		console.log(startTime.getMilliseconds());/*
+		msg = `${startTime.getHours()}:${startTime.getMinutes()}:${startTime.getSeconds()}.${(startTime.getMilliseconds())/100}`;
+
+		console.log(msg);/*
 		time+=0.1;
 		time = time.toFixed(1);
 		if (time>=60) {
