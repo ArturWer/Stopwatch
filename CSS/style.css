@@ -70,3 +70,11 @@ main .log{
 	background-color: #deed1b4d;
 	margin: .5rem;
 }
+main .log li{
+	list-style-type: none;
+	padding: 2px;
+	border: 1px solid white;
+	box-shadow: 2px 2px 3px silver;
+	margin-top: 3px;
+	padding-left: 10px;
+}

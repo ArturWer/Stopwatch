@@ -22,23 +22,27 @@ function checkClick(e) {
 	} else if (button === "Reset"){
 		time = 0;
 		clearInterval(intervalId);
-		stopwatchEl.textContent = "0.00";
+		stopwatchEl.textContent = "0.00 s";
 		changeBtns("Start");
 	} else if (button === "Lap"){
-		
+		writeLog();
 	}
 };
 
 function startStopwatch(){
-	let intervalId = setInterval (timeGo, 10);
+	let intervalId = setInterval (timeGo, 100);
 	return intervalId;
 };
 
 function timeGo(){
-	time+=0.01;
-	time = time.toFixed(2);
-	stopwatchEl.firstChild.nodeValue = time;
+	time+=0.1;
+	time = time.toFixed(1);
+	if (time>=60) {
+		convertTime(time);
+	}
+	stopwatchEl.firstChild.nodeValue = `${time} s`;
 	time = Number(time);
+
 };
 function changeBtns(btn1, btn2){
 	if (btn1) {
@@ -52,8 +56,9 @@ function changeBtns(btn1, btn2){
 	
 };
 function writeLog(){
+	let msg = `${time} s`;
 	let el = document.createElement("li");
-	let text = document.createTextNode(time);
+	let text = document.createTextNode(msg);
 	el.appendChild(text);
 	document.querySelector(".log ol").appendChild(el);
 };
