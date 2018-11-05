@@ -3,7 +3,6 @@ let form = document.querySelector("form"),
     stopwatchEl = document.querySelector(".stopwatch"),
     startStopBtn = document.getElementById('startStopBtn'),
     btn2El = document.getElementById('btn2'),
-	time = 0,
 	intervalId;
 
 function checkClick(e) {
@@ -30,19 +29,21 @@ function checkClick(e) {
 };
 
 function startStopwatch(){
-	let intervalId = setInterval (timeGo, 100);
+	let startTime = new Date(null);
+	let intervalId = setInterval (function (){
+		let milliSecs = startTime.getMilliseconds();
+		milliSecs+=100;
+		startTime.setMilliseconds(milliSecs);
+		console.log(startTime.getMilliseconds());/*
+		time+=0.1;
+		time = time.toFixed(1);
+		if (time>=60) {
+			convertTime(time);
+		}
+		stopwatchEl.firstChild.nodeValue = `${time} s`;
+		time = Number(time);*/
+	}, 100);
 	return intervalId;
-};
-
-function timeGo(){
-	time+=0.1;
-	time = time.toFixed(1);
-	if (time>=60) {
-		convertTime(time);
-	}
-	stopwatchEl.firstChild.nodeValue = `${time} s`;
-	time = Number(time);
-
 };
 function changeBtns(btn1, btn2){
 	if (btn1) {
