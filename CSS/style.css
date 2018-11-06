@@ -69,12 +69,33 @@ main #stopwatch{
 main .log{
 	background-color: #2828764d;
 	margin: .5rem;
+	padding: 1rem;
 }
+main .log ol {
+		padding-left: 0;
+	}
 main .log li{
 	list-style-type: none;
+	list-style-position: inside;
 	padding: 2px;
 	border: 3px solid white;
 	box-shadow: 2px 2px 3px silver;
 	margin-top: 3px;
-	padding-left: 10px;
+	padding-left: .5rem;
 }
+@media (max-width: 790px){
+	main #stopwatch {
+		font-size: 3rem;
+	}
+	main .log ol {
+		padding-left: .3rem;
+	}
+} 
+@media (max-width: 450px){
+	main #stopwatch {
+		font-size: 2rem;
+	}
+	main .log ol {
+		padding-left: .2rem;
+	}
+} 
