@@ -91,7 +91,13 @@ main .log li{
 		padding-left: .3rem;
 	}
 } 
-@media (max-width: 450px){
+@media (max-width: 480px){
+	main{
+		display: block;
+	}
+	main h2{
+		text-align: 1.5rem;
+	}
 	main #stopwatch {
 		font-size: 2rem;
 	}
