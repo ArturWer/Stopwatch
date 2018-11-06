@@ -49,16 +49,16 @@ form button{
 	color: black;
 	border-radius: 0.4rem;
 	background-color: #dcdcdc;
-	background-image: linear-gradient(to bottom right, rgb(0,0,0,0),rgba(0,0,0,0.2));
+	background-image: linear-gradient(to bottom right, rgb(0,0,0,0),rgba(0,0,0,0.4));
 	min-width: 5rem;
 }
 form button:hover{
 	color: white;
-	background-color: orange;
+	background-color: #690069;
 	box-shadow: .1rem .1rem .3rem grey;
 }
 form button:active{
-	background-color: purple;
+	background-color: #076b3f;
 	text-shadow: .1rem .1rem .1rem white;
 	font: bold;
 }
@@ -67,13 +67,13 @@ main #stopwatch{
 	text-align: center;
 }
 main .log{
-	background-color: #deed1b4d;
+	background-color: #2828764d;
 	margin: .5rem;
 }
 main .log li{
 	list-style-type: none;
 	padding: 2px;
-	border: 1px solid white;
+	border: 3px solid white;
 	box-shadow: 2px 2px 3px silver;
 	margin-top: 3px;
 	padding-left: 10px;
