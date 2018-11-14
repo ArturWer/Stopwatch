@@ -83,6 +83,14 @@ main .log li{
 	margin-top: 3px;
 	padding-left: .5rem;
 }
+main .log li:nth-child(even){
+	color: purple;
+	background-color: white;
+	border-color: silver;
+}
+main .log li:nth-child(odd){
+	background-color: silver;
+}
 @media (max-width: 790px){
 	main #stopwatch {
 		font-size: 3rem;

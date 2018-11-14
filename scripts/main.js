@@ -68,6 +68,4 @@ function writeLog(){
 	document.querySelector(".log ol").appendChild(el);
 };
 
-
 form.addEventListener("click", checkClick, false);
-
